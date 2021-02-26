@@ -112,3 +112,5 @@ SELECT
 FROM InvoiceLine AS IL
 JOIN Track AS T ON T.TrackId = IL.TrackId
 ORDER BY IL.InvoiceLineId;
+
+-- 13 Provide a query that includes the purchased track name AND artist name with each invoice line item.
