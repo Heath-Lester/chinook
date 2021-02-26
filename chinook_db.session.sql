@@ -92,8 +92,23 @@ SELECT
 FROM Invoice AS I
 JOIN InvoiceLine AS IL
 ON I.InvoiceId = IL.InvoiceId
-WHERE I.InvoiceId = 37
+WHERE I.InvoiceId = 37;
 
 
--- 11 Provide a query that includes the purchased track name with each invoice line item.
+-- 11 Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for each Invoice.
 SELECT
+    I.InvoiceId AS InvoiceId,
+    COUNT(IL.InvoiceLineId) AS NumberOfLines
+FROM Invoice AS I
+JOIN InvoiceLine AS IL
+ON I.InvoiceId = IL.InvoiceId
+GROUP BY I.InvoiceId;
+
+
+-- 12 Provide a query that includes the purchased track name with each invoice line item.
+SELECT
+    IL.InvoiceLineId AS InvoiceLineId,
+    T.Name AS TrackName
+FROM InvoiceLine AS IL
+JOIN Track AS T ON T.TrackId = IL.TrackId
+ORDER BY IL.InvoiceLineId;
